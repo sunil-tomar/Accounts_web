@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BaseDomain<IDType> implements Serializable {
 	
 	public BaseDomain() {
-        System.out.println("BaseEntity.BaseEntity()");
+        //System.out.println("BaseEntity.BaseEntity()");
 	}
 	
     public IDType getId() {
