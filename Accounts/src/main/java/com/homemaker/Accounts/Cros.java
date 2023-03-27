@@ -13,6 +13,28 @@ public class Cros implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         System.out.print("Cros addCorsMappings() enabled by sunil");
         registry.addMapping("/**");
-       // registry.allowedOrigins("https://a.com");
+        // registry.allowedOrigins("https://a.com");
     }
 }
+
+
+
+/*
+@Configuration
+public class CorsConfig {
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*")
+                        .exposedHeaders("Authorization")
+                        .allowCredentials(true).maxAge(3600);
+            }
+        };
+    }
+}*/

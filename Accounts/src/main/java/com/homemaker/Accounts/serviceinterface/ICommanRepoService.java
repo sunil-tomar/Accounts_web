@@ -7,6 +7,7 @@ import static com.homemaker.Accounts.utils.MonthlyExpansesContants.STATUS;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.FALSE;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.MESSAGE;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +23,8 @@ public interface ICommanRepoService<Type> {
     Iterable<Type> saveAll(List<Type> all);
 
 
-    default Map<String, Object> addOrUpdateEntity(MonthlyExpenseDto monthlyExpenseDto){
-        return new HashMap<>(){{
+    default Map<String, Object> addOrUpdateEntity(MonthlyExpenseDto monthlyExpenseDto) {
+        return new HashMap<>() {{
             put(STATUS, FALSE);
             put(MESSAGE, "method implementation not avaiable in service class.");
         }};
