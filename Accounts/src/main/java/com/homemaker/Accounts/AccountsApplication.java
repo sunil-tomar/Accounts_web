@@ -10,10 +10,9 @@ public class AccountsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountsApplication.class, args);
-
-
 	}
 
+//please don't add unncessagry code in this file.
 
 
 }

@@ -1,4 +1,4 @@
-package com.homemaker.Accounts;
+package com.homemaker.Accounts.controller;
 
 import com.homemaker.Accounts.dto.MonthlyExpenseDto;
 import com.homemaker.Accounts.entities.MonthlyExpense;
