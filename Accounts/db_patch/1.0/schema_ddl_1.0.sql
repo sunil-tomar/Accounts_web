@@ -1,0 +1,1 @@
+-- adding DDL script for Accoounts App.
