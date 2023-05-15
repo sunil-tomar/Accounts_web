@@ -23,8 +23,7 @@ repositories {
 
 
 dependencies {
-	implementation 'com.google.cloud:google-cloud-translate:0.8.0'
-	//implementation 'com.google.cloud:google-cloud-translate:2.2.1'
+
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
 	implementation 'javax.persistence:persistence-api:1.0.2'
