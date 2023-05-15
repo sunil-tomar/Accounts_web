@@ -1,4 +1,4 @@
-package com.homemaker.Accounts;
+package com.homemaker.Accounts.controller;
 
 import com.homemaker.Accounts.dto.MonthlyExpenseDto;
 import com.homemaker.Accounts.entities.MonthlyExpense;
@@ -38,5 +38,20 @@ public ResponseEntity add(@RequestBody MonthlyExpenseDto monthlyExpenseDto){
     return success(resp);
 }
 
+
+    @PostMapping(value = "/add-all", consumes = "application/json")
+    public ResponseEntity addAll(){
+        //validation.
+        Map<String, Object> resp=null;
+        try {
+            resp = null; //iMonthlyExpenseService.addDummyDataList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (resp.containsKey(STATUS)&&resp.get(STATUS).equals(FALSE)){
+            return error(resp);
+        }
+        return success(resp);
+    }
 
 }

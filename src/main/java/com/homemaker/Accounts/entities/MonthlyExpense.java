@@ -4,15 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
 import static com.homemaker.Accounts.utils.RegularExpressions.*;
 
-
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -30,7 +28,9 @@ public class MonthlyExpense extends BaseDomain<Long>{
 	@Size(min= 3, max= 100, message = AMUONT_PAID_FOR_LENGTH_MSG)
 	@Pattern(message = ACC_PAID_FOR_MSG, regexp = ACC_PAID_FOR_REG_KEY)
 	private String paidFor;
+
 	@Column(name=COL_AMOUNT)
+	@NotNull(message = AMUONT_MANDATORY_MSG)
 	private Double amount;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = COL_CREATED_TIME, nullable = false,updatable = false, columnDefinition = DEFAULT_TIMESTAMP_SQL_QUERY)
@@ -46,6 +46,7 @@ public class MonthlyExpense extends BaseDomain<Long>{
 
 	//************************************** MSG **************************************/
 	private static final String AMUONT_PAID_FOR_MANDATORY_MSG = "Amount paid for is mandatory";
+	private static final String AMUONT_MANDATORY_MSG = "Amount is mandatory";
 	private static final String AMUONT_PAID_FOR_LENGTH_MSG = "Amount paid for must be between 3 to 100 chars Long";
 	private static final String DEFAULT_TIMESTAMP_SQL_QUERY = "DATETIME default CURRENT_TIMESTAMP";
 
