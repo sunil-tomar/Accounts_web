@@ -42,7 +42,12 @@ public ResponseEntity add(@RequestBody MonthlyExpenseDto monthlyExpenseDto){
     @PostMapping(value = "/add-all", consumes = "application/json")
     public ResponseEntity addAll(){
         //validation.
-        Map<String, Object> resp=iMonthlyExpenseService.addDummyDataList();
+        Map<String, Object> resp=null;
+        try {
+            resp = null; //iMonthlyExpenseService.addDummyDataList();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         if (resp.containsKey(STATUS)&&resp.get(STATUS).equals(FALSE)){
             return error(resp);
         }

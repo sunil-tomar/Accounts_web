@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Accounts_web.iml" filepath="$PROJECT_DIR$/.idea/Accounts_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Accounts.accounts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Accounts.accounts.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Accounts_web.Accounts.accounts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Accounts_web.Accounts.accounts.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MonthlyExpenses.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MonthlyExpenses.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/accounts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/accounts.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.homemaker.accounts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.homemaker.accounts.main.iml" />
     </modules>
   </component>
 </project>

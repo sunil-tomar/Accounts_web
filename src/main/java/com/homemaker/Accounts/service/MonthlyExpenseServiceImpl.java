@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.*;
 
 
@@ -41,7 +43,7 @@ return resp;
 
 
     @Override
-    public Map<String, Object> addDummyDataList() {
+    public Map<String, Object> addDummyDataList() throws Exception {
         List<String> userNameList = Arrays.asList("James", "Josephine", "Art", "Lenna", "Donette", "Simona", "Mitsue", "Leota", "Sage", "Kris", "Minna", "Abel", "Kiley", "Graciela", "Cammy", "Mattie", "Meaghan", "Gladys", "Yuki",
                 "Fletcher", "Bette", "Veronika", "Willard", "Maryann", "Alisha", "Allene", "Chanel", "Ezekiel", "Willow", "Bernardo", "Ammie", "Francine", "Ernie", "Albina", "Alishia", "Solange", "Jose",
                 "Rozella", "Valentine", "Kati", "Youlanda", "Dyan", "Roxane", "Lavera", "Erick", "Fatima", "Jina", "Kanisha", "Emerson", "Blair", "Brock", "Lorrie", "Sabra", "Marjory", "Karl", "Tonette",
@@ -53,7 +55,9 @@ return resp;
                 "Laticia", "Carissa", "Lezlie", "Ozell", "Arminda", "Reita", "Yolando", "Lizette", "Gregoria", "Carin", "Chantell", "Dierdre", "Larae", "Latrice", "Kerry", "Dorthy", "Fannie", "Evangelina",
                 "Novella", "Clay", "Jennifer", "Irma", "Eun", "Sylvia", "Nana", "Layla", "Joesph", "Annabelle", "Stephaine", "Nelida");
 
-        Random random = new Random();
+       // Random random = new Random();
+        final Random random = SecureRandom.getInstanceStrong();
+
     List<MonthlyExpense> monthlyExpenseList=new ArrayList<>();
         userNameList.forEach(u->{
             if (u.length()>3) {
