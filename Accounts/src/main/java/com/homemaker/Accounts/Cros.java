@@ -12,8 +12,9 @@ public class Cros implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         System.out.print("Cros addCorsMappings() enabled by sunil");
-        registry.addMapping("/**");
-        // registry.allowedOrigins("https://a.com");
+        registry.addMapping("/**")
+                .allowedOrigins("*"); // '*' will allow all URLS
+                //.allowedOrigins("http://localhost:3000"); //Specific URL's.
     }
 }
 
