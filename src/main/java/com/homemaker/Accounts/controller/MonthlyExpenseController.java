@@ -7,10 +7,12 @@ import com.homemaker.Accounts.serviceinterface.IMonthlyExpenseService;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.STATUS;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.FALSE;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,11 +42,28 @@ public ResponseEntity add(@RequestBody MonthlyExpenseDto monthlyExpenseDto){
 
 
     @PostMapping(value = "/add-all", consumes = "application/json")
-    public ResponseEntity addAll(){
+    public ResponseEntity addAll(@RequestBody MonthlyExpenseDto monthlyExpenseDto){
         //validation.
         Map<String, Object> resp=null;
         try {
-            resp = null; //iMonthlyExpenseService.addDummyDataList();
+            List<MonthlyExpense> monthlyExpenseList= (List<MonthlyExpense>) iMonthlyExpenseService.saveAll(monthlyExpenseDto.getMonthlyExpensesList());
+            resp =new HashMap<>();
+            resp.put("monthlyExpensesList", monthlyExpenseList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (resp.containsKey(STATUS)&&resp.get(STATUS).equals(FALSE)){
+            return error(resp);
+        }
+        return success(resp);
+    }
+
+    @PostMapping(value = "/add-dummy-data", consumes = "application/json")
+    public ResponseEntity addDummyData(){
+        //validation.
+        Map<String, Object> resp=null;
+        try {
+            resp = iMonthlyExpenseService.addDummyDataList();
         }catch (Exception e){
             e.printStackTrace();
         }
