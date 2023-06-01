@@ -2,7 +2,7 @@ package com.homemaker.Accounts.controller;
 
 import com.homemaker.Accounts.dto.MonthlyExpenseDto;
 import com.homemaker.Accounts.entities.MonthlyExpense;
-import com.homemaker.Accounts.service.CommonCodeService;
+import com.homemaker.Accounts.service.CommonService;
 import com.homemaker.Accounts.serviceinterface.IMonthlyExpenseService;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.STATUS;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.FALSE;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/monthly-expense")
-public class MonthlyExpenseController extends CommonCodeService<MonthlyExpense> {
+public class MonthlyExpenseController extends CommonService<MonthlyExpense> {
 @Autowired IMonthlyExpenseService iMonthlyExpenseService;
 
 @GetMapping(value = "/fetch-all", produces = "application/json")

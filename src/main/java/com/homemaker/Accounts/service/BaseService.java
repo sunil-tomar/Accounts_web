@@ -3,6 +3,8 @@ package com.homemaker.Accounts.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.stereotype.Service;
 //can not take as service for class outside spring otherwise No-Bean defintion found error occred.
@@ -14,6 +16,7 @@ import net.minidev.json.JSONObject;
 
 //@Service //not aware of.
 public class BaseService<T extends BaseDomain> {
+
     protected JpaRepository<T, Long> jpaRepository;
 
     public BaseService(JpaRepository<T, Long> repository) {

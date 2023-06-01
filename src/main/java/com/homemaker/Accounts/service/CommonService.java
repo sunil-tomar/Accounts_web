@@ -3,6 +3,8 @@ package com.homemaker.Accounts.service;
 import com.homemaker.Accounts.entities.BaseDomain;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
@@ -13,9 +15,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 //@Service //not aware of.
-public class CommonCodeService<T extends BaseDomain> {
+public class CommonService<T extends BaseDomain> {
     public static String SUCCESS="success";
     public static String MESSAGE="message";
+    private static final Logger logger = LogManager.getLogger("Accounts");
 
     protected final ResponseEntity success(Object data) {
         return success(data, null);
@@ -50,6 +53,25 @@ public class CommonCodeService<T extends BaseDomain> {
         }
 
         return ResponseEntity.ok().contentType( MediaType.APPLICATION_JSON).body(resp);
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+    public static void logInfo(Object message) {
+        getLogger().info(message);
+    }
+
+    public static void logError(Object message) {
+        getLogger().error(message);
+    }
+
+    public static void logWarn(Object message) {
+        getLogger().warn(message);
+    }
+
+    public static void logTrace(Object message) {
+        getLogger().trace(message);
     }
 }
  
