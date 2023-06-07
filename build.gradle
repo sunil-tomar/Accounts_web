@@ -21,6 +21,8 @@ repositories {
 	maven { url 'https://repo.spring.io/snapshot' }
 }
 
+//swagger api doc version.
+def springFoxVersion = '2.9.2'
 
 dependencies {
 
@@ -40,6 +42,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//Swagger API docs.
+	implementation "io.springfox:springfox-swagger-ui:${springFoxVersion}"
+	implementation "io.springfox:springfox-swagger2:${springFoxVersion}"
 }
 
 tasks.named('test') {
