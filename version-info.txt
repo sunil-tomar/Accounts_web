@@ -1,0 +1,11 @@
+##############################################################
+#
+# This file is used by doRelease script to increment version also by build.gradle for versioning of tar and jar generated.
+# check out given link for version format followed here :https://semver.org/
+#
+#############################################################
+major=2
+minor=2
+patch=0
+qa=m1b4
+uat=rc1
