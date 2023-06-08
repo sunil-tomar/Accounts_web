@@ -21,9 +21,12 @@ repositories {
 	maven { url 'https://repo.spring.io/snapshot' }
 }
 
+//swagger api doc version.
+def springFoxVersion = '2.9.2'
 
 dependencies {
 
+	implementation 'com.h2database:h2:2.1.214'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
 	implementation 'javax.persistence:persistence-api:1.0.2'
@@ -39,6 +42,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//Swagger API docs.
+	implementation "io.springfox:springfox-swagger-ui:${springFoxVersion}"
+	implementation "io.springfox:springfox-swagger2:${springFoxVersion}"
 }
 
 tasks.named('test') {
