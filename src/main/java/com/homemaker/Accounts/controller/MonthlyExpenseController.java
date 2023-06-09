@@ -4,6 +4,8 @@ import com.homemaker.Accounts.dto.MonthlyExpenseDto;
 import com.homemaker.Accounts.entities.MonthlyExpense;
 import com.homemaker.Accounts.service.CommonService;
 import com.homemaker.Accounts.serviceinterface.IMonthlyExpenseService;
+
+import static com.homemaker.Accounts.utils.ACCOUNTS_URL.URL_ADD;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.STATUS;
 import static com.homemaker.Accounts.utils.MonthlyExpansesContants.FALSE;
 
@@ -30,7 +32,7 @@ resp.put("monthly-expanses-list" , fetchList);
 return success(resp);
 }
 
-@PostMapping(value = "/add", consumes = "application/json")
+@PostMapping(value = URL_ADD, consumes = "application/json")
 public ResponseEntity add(@RequestBody MonthlyExpenseDto monthlyExpenseDto){
     //validation.
    Map<String, Object> resp=iMonthlyExpenseService.addOrUpdateEntity(monthlyExpenseDto);
