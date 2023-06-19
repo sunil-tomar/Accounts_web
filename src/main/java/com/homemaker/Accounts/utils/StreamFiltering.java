@@ -53,7 +53,8 @@ public class StreamFiltering {
         CommonService.logInfo(" exiting from filterCardBlockReason() ");
     }
 
-    private static List<Map<String, Object>> cardBlockReasonsFilteredList(List<Map<String, Object>> cardReasonList, Consumer<Map<String, Object>> action) {
+    private static List<Map<String, Object>> cardBlockReasonsFilteredList(List<Map<String, Object>> cardReasonList,
+                                                                          Consumer<Map<String, Object>> action) {
         cardReasonList.stream().forEach(action);
         return cardReasonList;
     }

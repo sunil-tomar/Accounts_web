@@ -24,9 +24,18 @@ public interface ICommanRepoService<Type> {
 
 
     default Map<String, Object> addOrUpdateEntity(MonthlyExpenseDto monthlyExpenseDto) {
-        return new HashMap<>() {{
-            put(STATUS, FALSE);
-            put(MESSAGE, "method implementation not avaiable in service class.");
-        }};
+        return notImplementedHashMap();
     }
+
+    default Map<String, Object> addDummyDataList() throws Exception {
+        return notImplementedHashMap();
+    }
+
+    default Map<String, Object> notImplementedHashMap(){
+        Map<String, Object> map=new HashMap<>();
+        map.put(STATUS, FALSE);
+        map.put(MESSAGE, "method implementation not avaiable in service class.");
+        return map;
+    }
+
 }

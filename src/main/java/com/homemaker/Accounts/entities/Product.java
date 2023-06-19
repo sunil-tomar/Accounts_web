@@ -1,21 +1,21 @@
 package com.homemaker.Accounts.entities;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name = "business_unit")
-@NamedQuery(name = "BusinessUnit.findAll", query = "SELECT bu FROM BusinessUnit bu")
-public class BusinessUnit extends BaseDomain<Long> implements Serializable{
+@Table(name = "product")
+@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+public class Product extends BaseDomain<Long> implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,9 +33,11 @@ public class BusinessUnit extends BaseDomain<Long> implements Serializable{
 	@Column(name = "updated_time", nullable = false, columnDefinition = "DATETIME default CURRENT_TIMESTAMP")
 	private Date updatedTime;
 
-	@JsonIgnoreProperties("businessUnit")
-	@OneToMany(cascade=CascadeType.ALL, fetch =FetchType.LAZY, mappedBy="businessUnit")
-	private Set<Category> categorySet;
+	@JsonIgnoreProperties("productSet")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "subcat_id")
+	private SubCategory subCategory;
+
 
 	//Sample Code for setting new Date for CreateTime.
 	@PrePersist protected void onCreatedtime() {

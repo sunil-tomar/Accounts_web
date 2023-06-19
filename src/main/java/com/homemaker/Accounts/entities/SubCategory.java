@@ -1,21 +1,22 @@
 package com.homemaker.Accounts.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
-import lombok.*;
-
 
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name = "business_unit")
-@NamedQuery(name = "BusinessUnit.findAll", query = "SELECT bu FROM BusinessUnit bu")
-public class BusinessUnit extends BaseDomain<Long> implements Serializable{
+@Table(name = "subcategory")
+@NamedQuery(name = "SubCategory.findAll", query = "SELECT sc FROM SubCategory sc")
+public class SubCategory extends BaseDomain<Long> implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,9 +34,15 @@ public class BusinessUnit extends BaseDomain<Long> implements Serializable{
 	@Column(name = "updated_time", nullable = false, columnDefinition = "DATETIME default CURRENT_TIMESTAMP")
 	private Date updatedTime;
 
-	@JsonIgnoreProperties("businessUnit")
-	@OneToMany(cascade=CascadeType.ALL, fetch =FetchType.LAZY, mappedBy="businessUnit")
-	private Set<Category> categorySet;
+	@JsonIgnoreProperties("subCategorySet")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="cat_id")//(cascade = CascadeType.ALL)
+	private Category category;
+
+	@JsonIgnoreProperties("subCategorySet")
+	@OneToMany(cascade = CascadeType.ALL,fetch =FetchType.LAZY,  mappedBy = "subCategory")
+	private Set<Product> productSet;
+
 
 	//Sample Code for setting new Date for CreateTime.
 	@PrePersist protected void onCreatedtime() {

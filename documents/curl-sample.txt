@@ -1,0 +1,19 @@
+POST API calling(ubuntu)
+-----------------------------------------------------------------------------------
+
+curl --location --request POST 'http://10.147.5.136:8081/cs/secure'\
+--header 'version: 1.0' \
+--header 'timestamp: 1616575685591' \
+--header 'consumer-id: b45b4766-5380-4a1b-92a2-ed47e7dc36a9' \
+--header 'Content-Type: application/json' \
+-X POST -d '{
+"ct": "JhoCyImyl4t6Y7rdIRAgHol8LV983VJ2uOCrudPr4yVBAZDO3g==",
+"requestId": "5eda9964-ad0a-4c80-bd8d-50489735743e",
+"service": "CS",
+"sk": "ah93QpjzZLffEyVdUcsLCm1CCGDzO8x5LdPdIGSTseadvIsQj5mAoIRJzRkaspNkBtlm/bCRKl1B7jNjS4jlNaf6STTAojVkmvmtMayczPNizGry4+bbKwQ5q7A8gaKEDnAtpedASI8M7DrrccohgHffVNxzS6uTZUEJD67sqwPbHStmMtIgdXOCjTXjl7zNz6gkaPT62gKMouYP0u2Y/104hy3mY5hS6DgBx52AsMkH2WDhsYTzowRCBBd9NYIPKu7/XYJ+craMmF5ehw9UuF1URrfG8m5UuYHM2UKVEFgN/pTKVBF97rDVo3cAikhsRt3bPnPASPmihmPq5aDtLg==",
+"api": "PlkCyZzelJAF9MLZ4oPOd31MuNzyqaEi",
+"iv": "KvPy7oTu1bSLzSlYP7/3+BRJ6GGCRnaCrOxJEIyFMEK9Y2j7cgJQsQX7wgWbYD3shVPdQsPL6hPdhKA1VAdh6FPqR1IYn7cbp6y1fIVzpsQHfIQ1i1IgthsXehTspJJmtCopWagGR2Ldpt/cHB8ENRMut/vfQmDN98EPabgthCHAaUVt6oFETI31zkWI/VU+nCysXR6wLUD8GEPc0v616xe0Ig/wPVq8SkAtTjPbjAZeqKA436m7mdVj5cNwu7stypCWaVSHUlbP3sbvN/Pfe4C6JHmlwAb3/Jdhtee1q4H9lRP36JlT6kTPs0u2W1kEUvZIx/tj4XblwPRmx551Fg==",
+"version": "1.1"
+}'
+
+--------------------------------------------------------------------------------------------
